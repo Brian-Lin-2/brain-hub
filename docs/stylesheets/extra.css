@@ -1,0 +1,201 @@
+/* docs/stylesheets/extra.css */
+
+:root [data-md-color-scheme="slate"] {
+  /* --- CORE COLORS (The "Uber" Dark Palette) --- */
+  --md-default-bg-color: #000000; /* Pure Black Background */
+  --md-default-bg-color--light: #000000;
+  --md-default-fg-color: #ffffff; /* Pure White Primary Text */
+  --md-default-fg-color--light: #e0e0e0; /* Off-white for secondary text */
+  --md-default-fg-color--lighter: #bdbdbd; /* Light gray for meta info */
+
+  /* --- TYPOGRAPHY --- */
+  --md-typeset-color: #ffffff;
+  --md-typeset-a-color: #2271ff; /* Clean Electric Blue for links */
+
+  /* High-contrast Headers */
+  --md-typeset-h1-color: #ffffff;
+  --md-typeset-h2-color: #ffffff;
+  --md-typeset-h3-color: #ffffff;
+
+  /* --- UI ELEMENTS --- */
+  --md-admonition-fg-color: #ffffff;
+  --md-footer-bg-color: #000000;
+  --md-footer-bg-color--dark: #000000;
+
+  /* Border for the header to separate it from content */
+  --md-header-bg-color: #000000;
+  --md-header-fg-color: #ffffff;
+}
+
+/* --- THE "CLEAN LINE" ADJUSTMENTS --- */
+
+/* Add a subtle bottom border to the header for structural definition */
+.md-header {
+  border-bottom: 1px solid #222;
+}
+
+/* Sidebar navigation - high contrast on hover */
+.md-nav__link {
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+
+.md-nav__link:hover {
+  color: #ffffff !important;
+}
+
+/* --- VIBRANT CODE BLOCKS --- */
+/* This makes the code background slightly 'lifted' from the pure black page */
+.md-typeset pre > code {
+  background-color: #0d0d0d;
+  color: #ffffff;
+  border: 1px solid #333;
+  padding: 1em;
+  border-radius: 8px;
+  font-size: 0.85em;
+  line-height: 1.6;
+}
+
+/* Syntax Highlighting (High Saturation) */
+.hl-kd,
+.hl-kr {
+  color: #ff79c6 !important;
+  font-weight: bold;
+} /* Keywords (Pink) */
+.hl-s,
+.hl-s2 {
+  color: #f1fa8c !important;
+} /* Strings (Yellow) */
+.hl-nb,
+.hl-nf {
+  color: #50fa7b !important;
+} /* Functions (Green) */
+.hl-c1 {
+  color: #6272a4 !important;
+  font-style: italic;
+} /* Comments (Gray-Blue) */
+.hl-si,
+.hl-n {
+  color: #8be9fd !important;
+} /* Variables/Names (Cyan) */
+.hl-mi,
+.hl-mf {
+  color: #bd93f9 !important;
+} /* Numbers (Purple) */
+
+/* Scrollbar styling for a sleek look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* --- HIGH-IMPACT HEADERS --- */
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4 {
+  font-weight: 800; /* Extra Bold */
+  color: #ffffff !important;
+  letter-spacing: -0.02em; /* Slightly tighter for a modern, sleek look */
+  margin-top: 2em; /* More whitespace above headers for breathing room */
+}
+
+.md-typeset h1 {
+  font-size: 2.2em;
+  border-bottom: 2px solid #222; /* Adds a structural underline for the main title */
+  padding-bottom: 0.5rem;
+}
+
+.md-typeset h2 {
+  font-size: 1.6em;
+  border-bottom: 1px solid #111; /* Subtle divider for sub-sections */
+  padding-bottom: 0.3rem;
+}
+
+.md-typeset h3 {
+  font-size: 1.3em;
+  text-transform: none; /* Keep as is or try 'uppercase' for a very techy look */
+}
+
+/* Sidebar Section Headers (The small labels in the side nav) */
+.md-nav__title {
+  font-weight: 900 !important;
+  letter-spacing: 0.1em; /* Spaced out for the 'app label' feel */
+  font-size: 0.6rem !important;
+  color: #666 !important; /* Muted gray so they act as labels, not links */
+}
+
+/* --- SIDEBAR NAVIGATION ENHANCEMENTS --- */
+
+/* Increase the font size of all navigation links */
+.md-nav__link {
+  font-size: 0.95rem; /* Default is ~0.8rem; this makes it much clearer */
+  line-height: 1.5;
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  color: #e0e0e0 !important; /* Slightly off-white for non-active links */
+}
+
+/* Make the top-level section headers significantly larger and bolder */
+.md-nav__item--nested > .md-nav__link {
+  font-size: 1.1rem; /* Larger "Category" titles */
+  font-weight: 700;
+  color: #ffffff !important;
+  margin-top: 1rem; /* Adds space between major categories */
+}
+
+/* Active Page - Pure white and slightly bigger to stand out */
+.md-nav__link--active {
+  color: #ffffff !important;
+  font-size: 1rem; /* Pops the active link slightly */
+  font-weight: 800;
+}
+
+/* Sidebar Title (The "Brain Hub" text at the very top of the side nav) */
+.md-nav__title[for="__drawer"] {
+  font-size: 1.4rem !important;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  padding-bottom: 1rem;
+  color: #ffffff !important;
+}
+
+/* --- TABLE OF CONTENTS (RIGHT SIDEBAR) --- */
+
+/* The "Table of contents" main title */
+.md-nav--secondary .md-nav__title {
+  font-size: 0.9rem !important;
+  font-weight: 800 !important;
+  color: #666 !important; /* Muted label style */
+  margin-bottom: 1rem;
+  display: none;
+}
+
+/* Individual links within the Table of Contents */
+.md-nav--secondary .md-nav__link {
+  font-size: 0.85rem !important; /* Slightly smaller than main nav but bigger than default */
+  line-height: 1.6;
+  font-weight: 500;
+  color: #bdbdbd !important; /* Secondary gray */
+  transition: all 0.2s ease;
+}
+
+/* Highlight the part of the page you are currently viewing */
+.md-nav--secondary .md-nav__link--active {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  border-left: 2px solid #ffffff; /* Uber-style indicator line */
+  padding-left: 10px;
+}
+
+/* Hover effect for TOC links */
+.md-nav--secondary .md-nav__link:hover {
+  color: #ffffff !important;
+}

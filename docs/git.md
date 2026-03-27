@@ -10,9 +10,9 @@ Git mainly consists of your local environment and the remote upstream environmen
 
 **Local Repository:**
 
-`Working Directory` - This is where you code and make changes <br>
-`Staging Area` - This is where you select code to be committed <br>
-`Local Repository` - This is where you keep your locally committed code <br>
+`Working Directory` - This is where you code and make changes
+`Staging Area` - This is where you select code to be committed
+`Local Repository` - This is where you keep your locally committed code
 
 > Typically you write your code in branches and then merge into main through a PR request
 

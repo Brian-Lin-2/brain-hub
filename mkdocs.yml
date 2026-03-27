@@ -1,6 +1,15 @@
 site_name: Brain Hub
 site_description: Engineering & Design Intelligence
 
+nav:
+  - Home: index.md
+  - Cloud:
+      - Azure:
+          - Access: cloud/azure/access.md
+          - Authentication: cloud/azure/auth.md
+  - Git: git.md
+  - Markdown: markdown.md
+
 theme:
   name: material
   icon:

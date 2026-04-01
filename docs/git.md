@@ -72,3 +72,9 @@ Git mainly consists of your local environment and the remote upstream environmen
 **Cherrypick:**
 
 1. `git cherrypick <commit-hash>`
+
+**Remove Accidental File from Upstream:**
+
+1. `git checkout HEAD~1 -- <absolute_path>`
+2. `git clean -fd`
+3. `git push --force-with-lease`

@@ -34,6 +34,77 @@ cred = DefaultAzureCredential()
 client = BlobServiceClient(account_url="...", credential=cred) # You can swap out for another credential at any time
 ```
 
+## Modular Programming
+
+This is a programming paradigm in python that embraces composition. Another popular programming paradigm is Object Oriented Programming (OOP).
+
+When you say `import <module>`, you aren't just importing a package/module but rather the entire `<name>.py` file. By default every python file is a module. This means any functions within that file will become usable inside the file that's importing it.
+
+It defaults to searching the default directory -> PYTHONPATH -> standard library (builtin python libraries) -> third party libraries (pip)
+
+**Common Imports:**
+
+```python
+import math
+math.sqrt(16)
+
+from math import sqrt
+sqrt(16)
+
+import math as m
+m.sqrt(16)
+
+# Imports everything. Can be dangerous as it can override your variables
+from math import *
+sqrt(16)
+
+# This is sub-package import. Only works if your directory is a package
+import utils.math as math
+math.sqrt(16)
+
+from utils.math import sqrt
+sqrt(16)
+```
+
+### Custom Packages
+
+In python any folder with `__init__.py` is considered a package
+
+```txt
+my_project/
+├── main.py          <-- Your entry point
+└── my_package/      <-- The directory
+    ├── __init__.py  <-- The "Passport"
+    ├── module_a.py
+    └── module_b.py
+```
+
+This tells python to treat any file inside the folder as a module.
+
+```python
+import utils.math as math
+math.sqrt(16)
+```
+
+This is an absolute import it tells python to import a file starting from the root directory. Most of the time you should only use absolute imports
+
+```python
+from .math import sqrt
+sqrt(16)
+```
+
+This is a relative import in relation to where the file is from.
+
+### Module / Library / Package
+
+A module is a single python file `math.py`
+
+A package is a folder that hosts many modules (files) `urllib`
+
+A library is a collection of packages/modules (folders/files) `requests`
+
+They are used pretty interchangeably however. Just know that these represent modular programming.
+
 ## Virtual Environment
 
 Self-contained directory that keeps all dependencies of a specific project separate from other projects and the global system.

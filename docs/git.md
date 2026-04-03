@@ -42,7 +42,7 @@ Git mainly consists of your local environment and the remote upstream environmen
 4. `git rebase main`
 5. `git push --force-with-lease`
 
-**Squash**
+**Squash:**
 
 1. `git checkout main`
 2. `git pull`
@@ -78,3 +78,7 @@ Git mainly consists of your local environment and the remote upstream environmen
 1. `git checkout HEAD~1 -- <absolute_path>`
 2. `git clean -fd`
 3. `git push --force-with-lease`
+
+## Stacked PR Workflow
+
+Instead of doing one giant PR (for a single feature), you can send out multiple PRs for a certain feature once specific milestones are reached. The strategy is to release an initial PR, then while that PR is being reviewed branch off that PR and start working on another change. If you finish that change early, you can make a PR off the first PR (this way it'll only show the commits of the second change). Once the first PR is merged to main, you can rebase the second PR onto main and then adjust the PR to merge into main. This can be stacked infinitely.

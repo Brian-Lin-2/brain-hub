@@ -1,5 +1,24 @@
 # Security
 
+## Personal Access Tokens (PAT)
+
+A PAT is a string of characters that acts as a substitute for your password. Typically used over HTTPS.
+
+## SSH
+
+SSH is the preferred method because once you set it up, you don't need to worry about authenticating anymore. Your computer and the application handles the handshake automatically.
+
+### Public/Private Keys
+
+The typical way is through a Key Pair.
+
+`Private Key` - This is the key you store locally on your computer. You never share it.
+`Public Key` - This is the key you provide to the application. It will use this key when trying to talk to your computer. Your computer will then use the private key to verify against this.
+
+### SSH Certificates
+
+This is the enterprise way. Refers to SSH Certificate Authorities (CA). A company will set up a CA and when you log into their company portal, they will sign your SSH key giving you a temporary Certificate.
+
 ## Keyring
 
 A keyring is an intermediary layer that lets you fetch passwords from any storage system (ie. local, remote, etc) using an API. This allows your code to not have direct access to the backend storage.

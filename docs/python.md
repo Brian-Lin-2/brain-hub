@@ -130,6 +130,8 @@ This is where Python hosts all its dependencies. You can control all the package
 
 `uv` is a modern tool designed to replace both pip and venv. Incredibly fast when downloading. It will create a uv.lock file. All previous pip commands can be used with uv prefixed and have huge performance boosts.
 
+> Important: uv treats certificates differently compared to pip. While pip needs to point to your system certificates, uv can simply use a --system-certs flag to point directly to your system certificates. This is ideal for corporate firewalls that are installed on your machine. Note that this doesn't work for Dockerfiles and you would need to inject certs in.
+
 `pyproject.toml` is a modern version that combines `setup.py`, `setup.cfg`, `requirements.txt`, `MANIFEST.in`
 
 **Helpful Notes:**

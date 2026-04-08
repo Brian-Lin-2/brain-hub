@@ -178,3 +178,44 @@ select = ["E", "F", "I"] # Error, Pyflakes, and Isort (auto-sorting imports)
 requires = ["hatchling"]
 build-backend = "hatchling"
 ```
+
+## Environment-Based Config
+
+Most of the time, your code wil be deployed to all types of environments (ie. `dv`, `pd`). Depending on the type of environment, the URL/secrets/parameters will change. To fix this dependency, instead of hard-coding your values you can instead inject them into your system through a config.yaml
+
+```txt
+project/
+├── config/
+│   ├── config.yaml       # Common/Base settings (Default)
+│   ├── config-dv.yaml    # Development overrides
+│   └── config-pd.yaml    # Production overrides
+├── main.py
+└── config_loader.py
+```
+
+This is what a common folder structure would look like. `config.yaml` is only necessary if there's shared environment variables, but if there's no shared ones then you can simply omit it.
+
+```python
+import os, yaml
+
+def initialize():
+    env = os.getenv("APP_ENV", "dv")
+    config = {}
+
+    # Load and merge: Base then Environment-specific
+    for suffix in ["", f"-{env}"]:
+        path = f"config/config{suffix}.yaml"
+        if os.path.exists(path):
+            with open(path) as f:
+                config.update(yaml.safe_load(f) or {})
+
+    # Inject into OS environment
+    for key, value in config.items():
+        os.environ[key.upper()] = str(value)
+
+    print(f"🚀 Injected {env} config into OS")
+
+initialize()
+```
+
+A nice practice is having a config_loader.py that is responsible for injecting your variables into the os.environ which your actual script can then pull from to use.

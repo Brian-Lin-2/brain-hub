@@ -1,6 +1,6 @@
 # Authentication
 
-This is important because it let's your code connect to Azure resources.
+This is important because it let's your code connect to Azure resources. Authentication is the "Who are you?" step and is normally done between a Service Principal and IdP (Identity Provider). Once an IdP verifies the identity a Service Principal it provides a JWT Token for authorization allowing the Service Principal to perform certain scoped permissions.
 
 ## Core Concepts
 
@@ -8,3 +8,4 @@ This is important because it let's your code connect to Azure resources.
 - `Account Keys` - String that gives full admin access to an `Azure Storage Account`. Best practice is to use this to generate a `Shared Access Signature (SAS) Token` that grants temporary and restricted access to the storage account.
 - `Client Secret` - Key that acts as a password a `Service Principal` uses to authenticate.
 - `Certificates` - A `.pfx` or `.pem` file that uses asymmetric encryption (public/private keys) to store permissions. Mainly used for enterprise-grade auth.
+- `JWT Token` - A compact, URL-safe way of transferring information between parties. It is "signed", meaning it can be verified to ensure it hasn't been tampered with. Normally passed in the "Authorization" header in HTTP Requests

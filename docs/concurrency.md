@@ -82,3 +82,64 @@ asyncio.run(main())
 ```
 
 > asyncio is the standard Python library used to write concurrent code.
+
+## Lock
+
+This is used to prevent race conditions in sensitive parts of code. If you have shared state and need to make sure two tasks don't overwrite each other, use a lock.
+
+```python
+import asyncio
+
+# Shared resource
+counter = 0
+lock = asyncio.Lock()
+
+async def increment_counter(task_id):
+    global counter
+
+    # "async with" ensures the lock is released even if an error occurs
+    async with lock:
+        # Simulate a small delay (like a DB read/write)
+        await asyncio.sleep(0.1)
+        counter += 1
+
+async def main():
+    # Run 5 tasks concurrently
+    await asyncio.gather(*(increment_counter(i) for i in range(5)))
+
+asyncio.run(main())
+```
+
+> Be careful when using this as if you lock too many parts of your code, it's essentially just a single thread process again
+
+## Semaphores
+
+While a Lock only allows for one worker at a time, semaphores allows for a specified number of workers (ie. 5). Semaphores are good to limit the amount of concurrency
+
+**Steps:**
+
+1. Initialize - Create the semaphore with a number
+2. Acquire - Whenever a task starts, it must acquire a semaphore
+3. Wait - If the semaphore count hits 0, the next task is queued
+4. Release - Once a task finishes, it releases its semaphore
+
+```python
+import asyncio
+
+# Create the "bouncer" - only 3 tasks allowed at once
+sem = asyncio.Semaphore(3)
+
+async def call_llm_api(request_id):
+    async with sem:
+        # Only 3 tasks can reach this line at the same time
+        await asyncio.sleep(2) # Simulate API latency
+
+async def main():
+    # Try to launch 10 requests at once
+    tasks = [call_llm_api(i) for i in range(10)]
+    await asyncio.gather(*tasks)
+
+asyncio.run(main())
+```
+
+> Tip: `async with sem` will acquire and release the semaphore in the code block automatically

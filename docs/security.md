@@ -34,6 +34,44 @@ A certificate is a applications version of an id card. It allows the app to prov
 
 In a corporate setting, a certificate installed on your computer allows the corporate's firewall to validate that your device belongs with the company. This allows you to access company applications.
 
+### Root Certificate
+
+This is the pre-installed base certificate that most company laptops come pre-installed with. Since the laptop trusts this certificate to begin with, any certs signed by the root cert will automatically also be trusted.
+
+### Dockerfiles
+
+Due to Dockerfiles providing an isolated environment (Linux), it doesn't automatically inherit the settings, files, or trust stores of a Mac. Window machines usually bypass this because they use WSL2 under the hood. WSL2 is able to automatically pick up its system settings so the Dockerfile can also inherit the proper certs.
+
+Mac is a lot harder to do this because Keychain (where your certs are stored) is a lot more strict about access.
+
+**Mac Solution:**
+
+1. Export your corporate root certificate as a `.crt` file and put it in the project folder.
+2. Inject the certificate into the containers file system during the build process. This way the container can have access to the certificates and bypass any proxies.
+
+```Dockerfile
+# Example for a Debian/Ubuntu based image
+FROM node:20
+
+# 1. Define proxy environment variables (The proxy's address)
+ENV http_proxy=http://proxy.yourcompany.com:8080
+ENV https_proxy=http://proxy.yourcompany.com:8080
+
+# 2. Copy the certificate from your Mac into the container
+COPY company-root.crt /project_folder/company-root.crt
+
+# 3. Update the Linux trust store so the OS recognizes it
+RUN apt-get update && apt-get install -y ca-certificates && \
+    update-ca-certificates
+
+# Now, subsequent commands like 'npm install' will trust the proxy
+RUN npm install
+```
+
+## Proxy
+
+A proxy acts as a middleman between a client and a server. A `Corporate Proxy` is a special type of proxy that is between you and a server. Everytime you visit something, the corporate proxy determines if its allowed.
+
 ## VPN
 
 A private networking tunnel that allows you to create a secure connection between your internet and another network (typically a corporate network). This allows you to access applications that can normally only be accessible through the corporate internet.

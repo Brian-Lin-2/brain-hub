@@ -95,6 +95,8 @@ sqrt(16)
 
 This is a relative import in relation to where the file is from.
 
+> You can upload a package using Python tools. Packages are uploaded to a package manager. Normally stored in a dist folder which acts as a final packaged version of your code.
+
 ### Module / Library / Package
 
 A module is a single python file `math.py`

@@ -221,3 +221,46 @@ initialize()
 ```
 
 A nice practice is having a config_loader.py that is responsible for injecting your variables into the os.environ which your actual script can then pull from to use.
+
+## Pydantic
+
+This is the TypeScript of Python. While Python has built in type hints, Pydantic actually enforces it.
+
+## Exception Handling
+
+This is crucial to ensure production grade code doesn't break. Unhandled exceptions in your code can completely kill your process. Anytime there's code that could potentially crash your system, you must wrap it in a try catch. Make sure to use the `logging` module to record the stack trace.
+
+### When it's fine to crash the program
+
+Generally, it's fine to crash the program on initialization. If the program didn't start correctly, it's fine to just crash it instead of silently allowing it to continue. You can still have the code in a try-catch, but raise the Exception to ensure the program crashes.
+
+## Testing / Debugging
+
+### Scratchpad Pattern
+
+Sometimes a code repo is too huge to easily test a single function you wrote. What you can do is create a `scratchpad` directory and add it to your `.gitignore`. From here you can create test files and use `sys.path` to let the script see the rest of your repo.
+
+```python
+import sys
+from pathlib import Path
+# Adds the root directory of your repo to the path
+sys.path.append(str(Path(__file__).parent.parent))
+
+from my_app.core.logic import test_function
+print(test_function())
+```
+
+### ipdb
+
+This is perfect for an interactive debugger. Let's you freeze time and see code at a certain state.
+
+```python
+import ipdb
+ipdb.set_tract()
+```
+
+> You can use the built-in `breakpoint()` function in python and set `export PYTHONBREAKPOINT=ipdb.set_trace`. This allows you to use pythons built-in debugging functionality but with ipdb's advanced debugging features.
+
+### Pytest
+
+This is your classic library for automated tests. Can be used for unit tests, integration tests, and end-to-end tests.

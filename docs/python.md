@@ -1,6 +1,66 @@
 # Python
 
-## Design
+## Zen of Python
+
+These are 19 principles of Python code that serve as a guide for making architectural decisions that prioritize long-term maintainability
+
+### Beautiful is better than ugly
+
+Python code should follow **PEP8** styling guide. Clean indentation, consistent naming, and logical grouping.
+
+### Explicit is better than implicit
+
+Always be clear with what your code is doing
+
+```python
+from module import * # Implicit (unclear)
+from module import function # Explicit (clear)
+from module; module.function() # Explicit (clear)
+```
+
+### Simple is better than complex, but complex is better than complicated
+
+Try to solve problems in the easiest way possible. For problems that do require complexity, try to organize it into a clear structure that has many moving parts. Complex code is better than complicated messy code.
+
+### Flat is better than nested
+
+Don't get into indent hell. Use guard clauses to escape out of conditionals early.
+
+Don't have nested modules. For nested modules use an `__init__.py` file to give off the illusion of the module being flat. It's better to have a bunch of functions in one util file and split out from there. Group by feature not by type
+
+### Sparse is better than dense
+
+It's better to expand your code out, so it's easier to read than cramming all the logic into one line.
+
+### Readability counts
+
+Make sure your functions/variables are easy to read and follow. This also applies to your code. It should be clean and elegant
+
+### Special cases aren't enough to break the rules although practicality beats purity
+
+NEVER break your project's design pattern. Consistency is key. If you do need to break the design, that implies your logic is flawed. Sometimes due to external limitations, you are forced to break your design rules. If so, you need to document why.
+
+### Errors should never pass silently unless explicitly silenced
+
+Don't use "bare" except blocks `except: pass`. Never try to hide bugs silently and instead you should log the error or raise it. The general rule is you log on non-crucial errors and raise whenever the program is in an invalid state (ie. missing a key on startup). If you do expect an error, pass it on purpose and document it.
+
+### In the face of ambiguity, refuse the temptation to guess
+
+If your code receives data it doesn't understand, never try to guess what the user means. Just raise an error. We should always have strict type checks on inputs.
+
+### Now is better than never, although never is often better than right now
+
+When starting to code, don't worry too much about design or architecture. First try getting a working dirty version out, and from there focus on cleaning up the code. However, even if its dirty/messy make sure its NOT buggy. If your code is buggy don't push it to production. It's better to lack a feature than to have a broken one.
+
+### If the implementation is hard to explain, it's a bad idea. If the implementation is easy to explain, it may be a good idea
+
+Simplicity is a strong signal of high-quality engineering. This means if possible, abstraction is your friend.
+
+## Function vs Classes
+
+Most of the times you want to use functions over classes in Python as it is easier to manage and use. The only time you would need to use a class is when you have state that you need to persist or you need to bundle a group of data/behavior.
+
+## Composition
 
 Composition is the new design approach of building complex objects by combining smaller, simpler objects. It's main concept is a 'Has-A' relationship.
 

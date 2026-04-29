@@ -36,3 +36,26 @@ A specific set of permissions inside a service that controls what roles a user c
 > Entra ID Group is used to organize users and assign them specific RBAC permissions depending on their role.
 
 Entra ID Group is fundamentally different from Entra Roles. While Entra Roles manage user permissions (think of it as an admin changing your permissions), Entra ID Group is a categorization of certain permissions (RBAC, Entra Role, etc) assigned to that specific group.
+
+#### App Registration
+
+Think of this as a global blueprint for your software. When you register an app, you are telling the identity provider that your code exists
+
+**Typically consists of:**
+
+- What it contains: the name of the app, the logo, redirect URIs, and the secrets/certificates used for auth
+- Where it lives: tenant
+
+> In Azure, there are a lot of global predefined app registrations (ie. Key Vault)
+
+#### Service Principal
+
+While the app registration is more of a blueprint, the Service Principal acts as the actual "instance" or "identity" of the app in a specific environment.
+
+> In a company, you'll likely have a service principal that is associated with an app registration (ie. Key Vault)
+
+#### API Scope
+
+This defines the specific level of access an application has to an API. The `Service Principal` is typically granted these scopes through a `JWT token`.
+
+> In Azure, the scope is almost always `[Resource Identifier URI]/[Scope Name]`. It usually defaults to `api://<client-id>/.default`

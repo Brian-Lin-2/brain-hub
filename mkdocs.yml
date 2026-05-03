@@ -3,12 +3,35 @@ site_description: Engineering & Design Intelligence
 
 nav:
   - Home: index.md
-  - Cloud:
+  - Fundamentals:
+      - Git: git.md
+      - Markdown: markdown.md
+      - Python: python.md
+      - JSON: json.md
+  - Architecture & design:
+      - System design: system-design.md
+      - Production: production.md
+      - Concurrency: concurrency.md
+  - APIs & protocols:
+      - HTTP: http.md
+      - API: api.md
+  - Cloud & infrastructure:
+      - Cloud overview: cloud/cloud.md
       - Azure:
           - Access: cloud/azure/access.md
           - Authentication: cloud/azure/auth.md
-  - Git: git.md
-  - Markdown: markdown.md
+      - Kubernetes: kubernetes.md
+      - Networking: networking.md
+      - Security: security.md
+  - ML & AI:
+      - Agent: agent.md
+      - Model: model.md
+      - Transformers:
+          - Cheatsheet: transformers/cheatsheet.md
+          - NLP: transformers/nlp.md
+          - Token: transformers/token.md
+  - Testing & tools:
+      - JMeter: jmeter.md
 
 theme:
   name: material

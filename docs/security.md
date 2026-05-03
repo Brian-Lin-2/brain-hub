@@ -67,19 +67,3 @@ RUN apt-get update && apt-get install -y ca-certificates && \
 # Now, subsequent commands like 'npm install' will trust the proxy
 RUN npm install
 ```
-
-## Proxy
-
-A proxy acts as a middleman between a client and a server. A `Corporate Proxy` is a special type of proxy that is between you and a server. Everytime you visit something, the corporate proxy determines if its allowed.
-
-## VPN
-
-A private networking tunnel that allows you to create a secure connection between your internet and another network (typically a corporate network). This allows you to access applications that can normally only be accessible through the corporate internet.
-
-## ZTNA
-
-ZTNA (Zero Trust Network Access) is the modern successor to VPN. While VPN creates an encrypted tunnel which gives you access to all resources inside a network, ZTNA never trusts your device. When you want to connect to a specific application, ZTNA looks at a combination of "signals" before it lets you access the application.
-
-These signals usually consist of `Identity, Device Health, Context, Least Privilege`.
-
-The main difference between VPN and ZTNA is full network access vs app-specific access. When using ZTNA, you always verify before accessing each specific application. Other applications in the network are not visible to you until those checks are complete.

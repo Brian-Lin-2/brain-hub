@@ -11,10 +11,10 @@
       
       
       
-        <link rel="prev" href="../git/">
+        <link rel="prev" href="../concurrency/">
       
       
-        <link rel="next" href="../python/">
+        <link rel="next" href="../api/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Markdown - Brain Hub</title>
+        <title>HTTP - Brain Hub</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#markdown" class="md-skip">
+        <a href="#http" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Markdown
+              HTTP
             
           </span>
         </div>
@@ -248,8 +248,6 @@
       
   
   
-    
-  
   
   
     
@@ -262,11 +260,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -287,7 +287,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -330,37 +330,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Markdown
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../markdown/" class="md-nav__link">
         
   
   
@@ -376,37 +349,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Resources
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -624,8 +566,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -636,13 +580,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
@@ -663,7 +605,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -678,10 +620,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../http/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTP
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -697,6 +666,280 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#python-requests-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python (requests library)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python (requests library)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-request-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common request methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#most-used-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Most used arguments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reading-the-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading the response
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error handling pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auth-and-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auth and sessions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-habits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical habits
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-python-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Python examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#url-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        URL Basics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-http-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core HTTP Methods
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status-codes-you-should-recognize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status Codes You Should Recognize
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Status Codes You Should Recognize">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2xx-success" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2xx Success
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4xx-client-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4xx Client Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5xx-server-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5xx Server Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#headers-that-matter-often" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Headers That Matter Often
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#body-and-data-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Body and Data Formats
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-and-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication and Authorization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#idempotency-important-for-reliability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Idempotency (Important for Reliability)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caching-and-performance-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caching and Performance Basics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timeouts-retries-and-rate-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timeouts, Retries, and Rate Limits
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cookies-vs-tokens-quick-mental-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cookies vs Tokens (Quick Mental Model)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-http-quickly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debugging HTTP Quickly
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1401,10 +1644,253 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#resources" class="md-nav__link">
+  <a href="#python-requests-library" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Resources
+        Python (requests library)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python (requests library)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-request-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common request methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#most-used-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Most used arguments
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reading-the-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading the response
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-handling-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error handling pattern
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auth-and-sessions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auth and sessions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#practical-habits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Practical habits
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-python-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Python examples
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#url-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        URL Basics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-http-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Core HTTP Methods
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status-codes-you-should-recognize" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status Codes You Should Recognize
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Status Codes You Should Recognize">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2xx-success" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2xx Success
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4xx-client-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4xx Client Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5xx-server-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5xx Server Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#headers-that-matter-often" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Headers That Matter Often
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#body-and-data-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Body and Data Formats
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-and-authorization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication and Authorization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#idempotency-important-for-reliability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Idempotency (Important for Reliability)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caching-and-performance-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caching and Performance Basics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timeouts-retries-and-rate-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timeouts, Retries, and Rate Limits
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cookies-vs-tokens-quick-mental-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cookies vs Tokens (Quick Mental Model)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-http-quickly" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debugging HTTP Quickly
       
     </span>
   </a>
@@ -1454,10 +1940,10 @@
     
     
       <li class="md-path__item">
-        <a href="../git/" class="md-path__link">
+        <a href="./" class="md-path__link">
           
   <span class="md-ellipsis">
-    Fundamentals
+    APIs & protocols
   </span>
 
         </a>
@@ -1476,13 +1962,168 @@
 
 
 
-<h1 id="markdown">Markdown</h1>
-<p>Markdown is a lightweight markup language used to format plain text using simple symbols.</p>
-<h2 id="resources">Resources</h2>
+<h1 id="http">HTTP</h1>
+<p>HTTP (Hypertext Transfer Protocol) is the standard way clients and servers communicate on the web. Understanding requests, responses, and how APIs behave in production is very important.</p>
+<h2 id="python-requests-library">Python (requests library)</h2>
+<p><code>requests</code> is the most common Python library for making HTTP calls in scripts, services, and automation jobs.</p>
+<h3 id="common-request-methods">Common request methods</h3>
 <ul>
-<li><a href="https://www.markdownguide.org/cheat-sheet/">Cheatsheet</a></li>
-<li><a href="https://www.youtube.com/watch?v=_PPWWRV6gbA">Crash Course</a></li>
+<li><code>requests.get(url, ...)</code></li>
+<li><code>requests.post(url, ...)</code></li>
+<li><code>requests.patch(url, ...)</code></li>
+<li><code>requests.put(url, ...)</code></li>
+<li><code>requests.delete(url, ...)</code></li>
 </ul>
+<h3 id="most-used-arguments">Most used arguments</h3>
+<ul>
+<li><code>params={...}</code>: query string values (for example, <code>?page=2</code>)</li>
+<li><code>json={...}</code>: send JSON body (auto sets JSON encoding)</li>
+<li><code>data={...}</code>: send form-like body</li>
+<li><code>headers={...}</code>: send custom headers like <code>Authorization</code></li>
+<li><code>timeout=(connect_timeout, read_timeout)</code> or <code>timeout=10</code></li>
+</ul>
+<h3 id="reading-the-response">Reading the response</h3>
+<ul>
+<li><code>response.status_code</code>: HTTP status code</li>
+<li><code>response.json()</code>: parse JSON response body</li>
+<li><code>response.text</code>: response as string</li>
+<li><code>response.headers</code>: response headers</li>
+</ul>
+<h3 id="error-handling-pattern">Error handling pattern</h3>
+<ul>
+<li>Use <code>response.raise_for_status()</code> to fail on non-2xx status codes.</li>
+<li>Wrap calls in <code>try/except requests.exceptions.RequestException</code> for network/timeouts.</li>
+</ul>
+<h3 id="auth-and-sessions">Auth and sessions</h3>
+<ul>
+<li>Bearer token pattern:</li>
+<li><code>headers={"Authorization": f"Bearer {token}"}</code></li>
+<li>Use <code>requests.Session()</code> when making many calls:</li>
+<li>Reuses TCP connections (faster)</li>
+<li>Keeps shared headers/cookies in one place</li>
+</ul>
+<h3 id="practical-habits">Practical habits</h3>
+<ul>
+<li>Always set a timeout.</li>
+<li>Log method, URL, status code, and request ID for debugging.</li>
+<li>Retry carefully (usually only idempotent operations).</li>
+</ul>
+<h3 id="basic-python-examples">Basic Python examples</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://api.example.com/users&quot;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;page&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;limit&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">users</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">users</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">token</span> <span class="o">=</span> <span class="s2">&quot;your_jwt_token&quot;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://api.example.com/users&quot;</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Brian&quot;</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;brian@example.com&quot;</span><span class="p">}</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">token</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="n">created_user</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="nb">print</span><span class="p">(</span><span class="n">created_user</span><span class="p">)</span>
+</span></code></pre></div>
+<h2 id="url-basics">URL Basics</h2>
+<ul>
+<li><strong>Scheme</strong>: <code>https://</code> (secure) or <code>http://</code></li>
+<li><strong>Host</strong>: domain name (for example, <code>api.company.com</code>)</li>
+<li><strong>Path</strong>: resource route (for example, <code>/users/123</code>)</li>
+<li><strong>Query params</strong>: filters/options (for example, <code>?page=2&amp;sort=name</code>)</li>
+</ul>
+<h2 id="core-http-methods">Core HTTP Methods</h2>
+<ul>
+<li><code>GET</code>: read data</li>
+<li><code>POST</code>: create new data or trigger an action</li>
+<li><code>PUT</code>: replace a resource</li>
+<li><code>PATCH</code>: partially update a resource</li>
+<li><code>DELETE</code>: remove a resource</li>
+</ul>
+<p>In practice, most work APIs rely heavily on <code>GET</code>, <code>POST</code>, <code>PATCH</code>, and <code>DELETE</code>.</p>
+<h2 id="status-codes-you-should-recognize">Status Codes You Should Recognize</h2>
+<h3 id="2xx-success">2xx Success</h3>
+<ul>
+<li><code>200 OK</code>: request succeeded</li>
+<li><code>201 Created</code>: resource created</li>
+<li><code>204 No Content</code>: succeeded with no body</li>
+</ul>
+<h3 id="4xx-client-errors">4xx Client Errors</h3>
+<ul>
+<li><code>400 Bad Request</code>: invalid input/format</li>
+<li><code>401 Unauthorized</code>: missing or invalid auth</li>
+<li><code>403 Forbidden</code>: authenticated but not allowed</li>
+<li><code>404 Not Found</code>: resource or route missing</li>
+<li><code>409 Conflict</code>: request conflicts with current state</li>
+<li><code>422 Unprocessable Entity</code>: validation failed</li>
+<li><code>429 Too Many Requests</code>: rate limit hit</li>
+</ul>
+<h3 id="5xx-server-errors">5xx Server Errors</h3>
+<ul>
+<li><code>500 Internal Server Error</code>: generic server failure</li>
+<li><code>502 Bad Gateway</code>: upstream service error</li>
+<li><code>503 Service Unavailable</code>: overloaded/down/maintenance</li>
+<li><code>504 Gateway Timeout</code>: upstream timed out</li>
+</ul>
+<h2 id="headers-that-matter-often">Headers That Matter Often</h2>
+<ul>
+<li><code>Authorization</code>: carries credentials (for example, Bearer token)</li>
+<li><code>Content-Type</code>: format of request body (commonly <code>application/json</code>)</li>
+<li><code>Accept</code>: expected response type</li>
+<li><code>Cache-Control</code>: caching instructions</li>
+<li><code>X-Request-ID</code> or trace headers: request tracing across services</li>
+</ul>
+<h2 id="body-and-data-formats">Body and Data Formats</h2>
+<p><code>application/json</code> - This is the most common body format that is sent for HTTP requests
+<code>multipart/form-data</code> - Same method as when you click <code>Upload</code> on a website. Request body is divided into parts, where one part can be text fields and another is the raw binary fo the image.</p>
+<h2 id="authentication-and-authorization">Authentication and Authorization</h2>
+<ul>
+<li><strong>Authentication</strong> = who you are (token/session/cookie).</li>
+<li><strong>Authorization</strong> = what you can do (roles/scopes/policies).</li>
+<li>Common API pattern: <code>Authorization: Bearer &lt;token&gt;</code>.</li>
+</ul>
+<h2 id="idempotency-important-for-reliability">Idempotency (Important for Reliability)</h2>
+<ul>
+<li>A request is <strong>idempotent</strong> if repeating it has the same effect.</li>
+<li><code>GET</code>, <code>PUT</code>, and <code>DELETE</code> are typically idempotent.</li>
+<li><code>POST</code> is usually not idempotent unless designed with an idempotency key.</li>
+</ul>
+<p>This matters for retries: clients and gateways may retry on timeouts.</p>
+<h2 id="caching-and-performance-basics">Caching and Performance Basics</h2>
+<ul>
+<li>HTTP caching can reduce latency and server load.</li>
+<li>Common headers: <code>Cache-Control</code>, <code>ETag</code>, <code>Last-Modified</code>.</li>
+<li>Even if you do not design caching deeply, know when responses are cacheable and when they should not be.</li>
+</ul>
+<h2 id="timeouts-retries-and-rate-limits">Timeouts, Retries, and Rate Limits</h2>
+<ul>
+<li>Set reasonable client timeouts; avoid waiting forever.</li>
+<li>Retry only safe/idempotent operations by default.</li>
+<li>Respect <code>429</code> responses and back off.</li>
+</ul>
+<h2 id="cookies-vs-tokens-quick-mental-model">Cookies vs Tokens (Quick Mental Model)</h2>
+<ul>
+<li><strong>Cookies</strong> are common in browser session auth.</li>
+<li><strong>Bearer tokens</strong> are common in service-to-service and API auth.</li>
+<li>Both can be secure when implemented correctly.</li>
+</ul>
+<h2 id="debugging-http-quickly">Debugging HTTP Quickly</h2>
+<p>When something fails, check in this order:</p>
+<ol>
+<li>URL/method correctness</li>
+<li>Auth headers and token expiry</li>
+<li>Request body shape and required fields</li>
+<li>Status code category (4xx vs 5xx)</li>
+<li>Response error message and server logs/traces</li>
+</ol>
 
 
 

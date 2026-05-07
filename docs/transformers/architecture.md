@@ -6,8 +6,10 @@ A transformer is pretty straight forward. It is just a bunch of attention and fe
 
 ## Overview
 
+Inside a transformer, it is typically just multiple layers of MHA and FFNN until an output is generated.
+
 `Multi-Headed Attention Layer (MHA)` - Essentially parallel processing for attention. Each head will calculate their own attention and at the end the results are combined.
-`Feed Forward Neural Network (FFNN)` - This is just a basic neural network
+`Feed Forward Neural Network (FFNN)` - This is just a basic neural network. It is actually what progresses the model from the input to output text.
 `Positional Encoding (PE)` - This helps assign positional weights to each token. This matters a lot for sentences as the position of words can greatly change the meaning
 
 ## Encoder

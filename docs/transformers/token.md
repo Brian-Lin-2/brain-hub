@@ -39,3 +39,19 @@ Typically to train this neural network, `Continuous Bag of Words (CBOW)` and `Sk
 1. `Tokenization` - The sentence is broken up into tokens
 2. `Lookup Table` - Each unique token has a corresponding (embedding) row in a massive matrix (`Embedding Layer`). This layer acts as a sort of token alphabet for the LLM. This is generated after learning has completed
 3. `Contextualization` - This is where these embeddings are refined based on the `attention` mechanism to change the meaning of the embeddings to better match the context of the sentence
+
+## Positional Embedding
+
+While embeddings help give words meaning to the LLM, the position of a word in a sentence will drastically change the context.
+
+### Hardcoded Position Embeddings
+
+The original way positional encodings were decided were through hardcoded values that used sin/cos functions. This worked because sin/cos have values between [0, 1]. Due to their unique natures, the LLM is easily able to determine the position of each word. This generated embedding is then added to the input embedding to give a further nudge.
+
+### Attention with Linear Biases (ALiBi)
+
+This is relative positioning. It's a way to inject positional information through the use. Introduced to solve the "length extrapolation" problem where models in the past for hardcoded embeddings, the model could only handle fixed lengths of inputs. It achieves relative positioning by increasing a constant bias that increases linearly as the distance between two tokens increases.
+
+### Rotary Position Embeddings (RoPE)
+
+This is the most popular strategy nowadays. While hardcoded positional embeddings add values to the input embedding, RoPE rotates them instead. By rotating the embedding vector, it lets the LLM know the position of the token. When calculating the attention between two words, the result depends on the relative angle between them. This allows a model understand how far words are from each other.

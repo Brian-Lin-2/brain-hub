@@ -128,7 +128,7 @@ sqrt(16)
 
 ### Custom Packages
 
-In python any folder with `__init__.py` is considered a package
+In python any folder with `__init__.py` is considered a package.
 
 ```txt
 my_project/
@@ -154,6 +154,16 @@ sqrt(16)
 ```
 
 This is a relative import in relation to where the file is from.
+
+```python
+# __init__.py
+from . import src.utils.logic as logic
+
+# main.py
+from package import logic
+```
+
+`__init__.py` is the entrypoint of the package. You can add aliasing to that file to change the paths.
 
 > You can upload a package using Python tools. Packages are uploaded to a package manager. Normally stored in a dist folder which acts as a final packaged version of your code.
 
@@ -324,3 +334,126 @@ ipdb.set_tract()
 ### Pytest
 
 This is your classic library for automated tests. Can be used for unit tests, integration tests, and end-to-end tests.
+
+#### Standard Testing
+
+`pytest` - Let's you run tests. Any folder ending in `_test.py` will be tested for.
+`pytest <file-name>` - Will run that specific file.
+`pytest -v` - Verbose testing
+`pytest --cov=my_package` - Generates a coverage report
+
+```python
+# func.py
+def add(a, b):
+    return a + b
+
+# test_func.py
+from func import add
+
+def test_add_numbers():
+    assert add(1, 2) == 3
+    assert add(-1, 1) == 0
+```
+
+pytest works excellently with the built-in python `assert` statements.
+
+> A good tip is to have a `tests/` folder.
+
+#### Fixtures
+
+Fixtures are functions that run before your tests to help provide data and other helpful things. Think of this as your setup phase.
+
+```python
+import pytest
+
+@pytest.fixture
+def sample_user():
+    return {"name": "Alice", "admin": False}
+
+def test_user_name(sample_user):
+    assert sample_user["name"] == "Alice"
+```
+
+> conftest.py is a special file that allows you to put fixtures inside it and it'll become available to all files in that directory without needing to import.
+
+#### Parametrization
+
+You can use `@pytest.mark.parametrize` to rerun the same test logic multiple times with different parameters.
+
+```python
+@pytest.mark.parametrize("input_a, input_b, expected", [
+    (1, 1, 2),
+    (10, 20, 30),
+    (0, 5, 5),
+])
+def test_addition(input_a, input_b, expected):
+    assert add(input_a, input_b) == expected
+```
+
+#### Exceptions
+
+To handle exception testing use `pytest.raises`
+
+```python
+def test_divide_by_zero():
+    with pytest.raises(ZeroDivisionError):
+        1 / 0
+```
+
+#### Mocking
+
+You can use the `pytest-mock` plugin to mock requests/database calls.
+
+```python
+def test_get_user_data(mocker):
+    # Mock an API call so it doesn't actually hit the internet
+    mock_get = mocker.patch('requests.get')
+    mock_get.return_value.json.return_value = {"name": "Fake User"}
+
+    # Run your code that uses requests.get
+    result = my_api_client.get_info()
+    assert result == "Fake User"
+```
+
+### Locust
+
+This is the standard python library for load testing. It uses an event-driven, coroutine-based approach which allows a single machine to simulate thousands of concurrent users without the overhead of heavy threads.
+
+**Key Components:**
+
+- `User Class` - Represents one simulated user. You define how long they wait between tasks and which tasks they do
+- `Tasks` - These are the actual Python functions (ie. making a `GET` request) that the user performs
+- `Wait Time` - Simulates "think time" between actions to make the load realistic
+
+```python
+from locust import HttpUser, task, between
+
+class AuthenticatedUser(HttpUser):
+    wait_time = between(1, 2)
+    host = "https://api.example.com"
+
+    def on_start(self):
+        """ Runs once per user to handle authentication """
+        response = self.client.post("/login", json={"username": "test_user", "password": "password123"})
+
+        if response.ok:
+            token = response.json().get("access_token")
+            self.headers = {"Authorization": f"Bearer {token}"}
+        else:
+            print("Failed to authenticate!")
+
+    @task(3)
+    def get_data(self):
+        self.client.get("/data", headers=self.headers)
+
+    @task(1)
+    def post_inference(self):
+        payload = {"input": [1, 2, 3]}
+        self.client.post("/predict", json=payload, headers=self.headers)
+```
+
+The class acts as a template for the user in Locust. Inside the class, you can define the tasks the user will take. The wait_time also mirrors how long the user will take on each task.
+
+Like JMeter, Locust can save the stats of the load test to a CSV and generate the necessarily files for further analysis.
+
+> Locust uses the python `requests` library under the hood.

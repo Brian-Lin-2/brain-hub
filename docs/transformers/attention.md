@@ -17,3 +17,21 @@ What happens is we multiple `Q * K^T` to find how similar the word is to each ot
 `Self-Attention` - A word in a sentence looks at other words in the same sentence to understand its own context
 `Cross-Attention` - Typically used in translation: the model looks at the original sentence while generating the output sentence
 `Multi-Head Attention` - Model uses several "heads" to look at different aspects of the text at once (ie. one head for grammar, one for meaning, etc)
+
+## Attention Optimizations
+
+Attention gets pretty expensive when the input is incredibly long.
+
+### Sparse Attention
+
+Instead of every token attending to every other token, we divide token up into local + global tokens
+
+`Sliding Window` - This is local attention. Tokens only attend to a small fixed window of neighbors.
+`Global Tokens` - Few specific tokens (ie. `[CLS]`) are allowed to attend to the entire sequence which act as a hub of information. This allows local tokens to still have some context on other tokens.
+
+### Shared Attention Heads
+
+This technique approximates the MHA process by reducing the number of Keys and Value stored in memory, which helps speed up inference and reduce KV cache size.
+
+`Multi-Query Attention (MQA)` - All attention heads share a single Key and Value head. Queries remain multi-headed.
+`Grouped-Query Attention (GPA)` - A middle ground where Queries are divided into groups and each group shares one Key and Value head.

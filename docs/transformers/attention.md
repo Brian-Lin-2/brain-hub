@@ -31,7 +31,9 @@ Instead of every token attending to every other token, we divide token up into l
 
 ### Shared Attention Heads
 
+An attention head is a single iteration of attention. Generally, multiple heads are used with each head focusing on a different concept (ie. grammar, semantics). Each head has its own set of Q, K, V and at the end of the MHA process all the heads are squashed together to form a coherent attention matrix. Each head has different weights (learned during training) which drastically affect what they search for.
+
 This technique approximates the MHA process by reducing the number of Keys and Value stored in memory, which helps speed up inference and reduce KV cache size.
 
-`Multi-Query Attention (MQA)` - All attention heads share a single Key and Value head. Queries remain multi-headed.
+`Multi-Query Attention (MQA)` - All attention heads share a single Key and Value head. Queries remain multi-headed. Incredibly fast, but can bottleneck its compute power.
 `Grouped-Query Attention (GPA)` - A middle ground where Queries are divided into groups and each group shares one Key and Value head.

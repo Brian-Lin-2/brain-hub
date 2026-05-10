@@ -55,3 +55,23 @@ This is relative positioning. It's a way to inject positional information throug
 ### Rotary Position Embeddings (RoPE)
 
 This is the most popular strategy nowadays. While hardcoded positional embeddings add values to the input embedding, RoPE rotates them instead. By rotating the embedding vector, it lets the LLM know the position of the token. When calculating the attention between two words, the result depends on the relative angle between them. This allows a model understand how far words are from each other.
+
+## Next Token Prediction
+
+At each new token, an LLM will generate a distribution of next tokens, each with a specific probability. To obtain these probabilities, the LLM takes the final output vector (called `logits`) and then runs a softmax function on them to turn them into a probability distribution.
+
+### Greedy Decoding
+
+We simply take the token with the highest predicted probability. This works, but the output will be very deterministic.
+
+### Beam Search
+
+We will keep track of the top N most likely sequences/sentences. At the end, the LLM will choose the sequence with the highest overall score across the whole sentence.
+
+### Sampling
+
+Sampling helps introduce randomness. The model will pick a word randomly against a weighted probability. Tokens that are more likely to come next will have higher weights. However, to keep sampling from becoming too random we use certain filters.
+
+`Temperature` - Higher temperature flattens the probabilities, making rare words more likely (increases the chance of randomness). Low temperature makes high-probability words more dominant (decreases the chance of randomness).
+`Top-P Sampling` - Here we only look at the top words whose probability add up to P. This helps us cut off words that are less relevant.
+`Top-K Sampling` - Here we only consider the K most likely next words. This also helps cut off words that are less relevant.

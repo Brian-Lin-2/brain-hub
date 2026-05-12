@@ -44,3 +44,18 @@ It basically just normalizes all the neuron activations into a consistent range,
 `RMS-Norm` - Stands for Root Mean Square Layer Normalization which is a simplified version of Layer Normalization. Designed to have the same stabilization benefits, but with less computational overhead.
 
 > Nowadays, Pre-Norm + RMS-Norm are used.
+
+## Context Window
+
+Essentially the model's short-term memory. It represents the maximum amount of information, measured in tokens, that the LLM can process and consider at any single moment.
+
+In a conversation with an LLM, it actually stores your entire chat history with it and passes the previous history + your input on every new input. Once the context window gets too big, the LLM will need to either compress the tokens or drop the earlier ones.
+
+"Context Rot" is a phenomenon that occurs where in long-running AI sessions, the quality, accuracy, and coherence of the model's response slowly decays over time.
+
+## In-Context Learning
+
+ICL is a concept where the LLM is able to learn on the spot, even if it hasn't been trained on that specific data yet.
+
+`Zero-Shot Learning` - This is where the question is asked without examples. Performance heavily depends on performance of initial model
+`Few-Shot Learning` - This is where the prompt contains examples of input / output. This lets the model learn and produce better performance

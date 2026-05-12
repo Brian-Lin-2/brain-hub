@@ -67,3 +67,11 @@ RUN apt-get update && apt-get install -y ca-certificates && \
 # Now, subsequent commands like 'npm install' will trust the proxy
 RUN npm install
 ```
+
+## Cluster Security
+
+Typically clusters fall under `trusted`, `untrusted`, and `semi-trusted`.
+
+`Trusted` - All components of this application reside within your private network. These applications typically have implicit network access
+`Semi-Trusted` - Some components of this application reside within the private network, but there's also parts that reside outside. Most non-internal use applications fall within this field and require firewall access. Most of these applications talk to the outside world through API Gateways.
+`Untrusted` - These are external applications that are not allowed at all inside the private network

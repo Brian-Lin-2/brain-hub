@@ -46,6 +46,10 @@ For a valid `JWT Token` to be generated, an API Scope normally needs to be baked
 
 Most `JWT Tokens` have an expiration date. The easiest way to cache the token is to store it in memory (also store its expiration time) and then before every API call, check if the token is valid.
 
+### Client Application
+
+This is a conceptual role. A client application is typically the originator of the request. The Client Application is typically the physical entity sending the request (typically a service principal). Typically, only client applications that an API has approved can actually query the endpoint.
+
 ## Swagger (Open API)
 
 This serves as an interactive web UI for users to read and experiment with a specific API. Commonly used in industry.

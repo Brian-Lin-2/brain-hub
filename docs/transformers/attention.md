@@ -37,3 +37,26 @@ This technique approximates the MHA process by reducing the number of Keys and V
 
 `Multi-Query Attention (MQA)` - All attention heads share a single Key and Value head. Queries remain multi-headed. Incredibly fast, but can bottleneck its compute power.
 `Grouped-Query Attention (GPA)` - A middle ground where Queries are divided into groups and each group shares one Key and Value head.
+
+### KV Cache
+
+Key Value (KV) Caching revolves around the idea that new tokens in inputs only need to interact with all previous tokens. Therefore, we can save on compute by just keeping the previous keys and values embeddings in a cache.
+
+**Steps:**
+
+`Prefill` - When you send your initial prompt, the model calculates the K and V vectors for all your words and stores them
+`Decoding` - When generating the next word, the model only calculates the Q, K, and V for that single new token
+`Lookup` - The LLM pulls from the KV cache to perform attention
+`Update` - The new token's K and V is added to the cache
+
+> While this is great, the tradeoff is it consumes a lot of VRAM. In long conversations, the cache can become so large that it exceeds the GPU's memory.
+
+## Paged Attention
+
+This is a memory optimization technique inspired by VRAM and Paging in traditional operating systems. Designed to solve the inefficient storage of KV Cache.
+
+PagedAttention breaks the KV cache into small, fixed-size blocks. This allows the blocks to be able to stored independently. The model will see the KV cache as a continuous sequence of tokens, but the physical blocks are scattered across the GPU's memory. The Block Table (mapping system) keeps track of which tokens are stored in which blocks.
+
+## Latent Attention
+
+Used to compress the KV Cache. In standard attention, the KV cache grows linearly with context length, but in latent attention the model compresses the KV into a "latent vector". This latent vector is then stored and uncompressed during inference.

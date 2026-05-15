@@ -75,3 +75,35 @@ Sampling helps introduce randomness. The model will pick a word randomly against
 `Temperature` - Higher temperature flattens the probabilities, making rare words more likely (increases the chance of randomness). Low temperature makes high-probability words more dominant (decreases the chance of randomness).
 `Top-P Sampling` - Here we only look at the top words whose probability add up to P. This helps us cut off words that are less relevant.
 `Top-K Sampling` - Here we only consider the K most likely next words. This also helps cut off words that are less relevant.
+
+## Token Optimization
+
+### Speculative Decoding
+
+Performance optimization technique that allows LLMs to generate text much faster by using two models instead of one.
+
+**Architecture:**
+
+`Draft Model` - Much smaller, faster, and cheaper version of the model
+`Target` - Large, high-quality model you actually want to use
+
+**Steps:**
+
+`Drafting` - The draft model generates a sequence of tokens very quickly. It guesses how the sentence should continue
+`Verification` - All those guessed tokens are fed into the target model in a single pass. Due to the parallel nature of GPUs, checking 5 tokens is nearly as fast a generating one token.
+`Acceptance/Rejection` - If the target model agrees with the draft model's guesses, those tokens are accepted instantly. However, for every token it disagrees with the sequence is cut off and the target model provides the correct token
+
+> The tradeoff is memory overhead as now you have to store two models. This techniques speed depends heavily on the quality of the draft model.
+
+### Multi-Token Prediction (MTP)
+
+MTP occurs during training and changes how LLMs learn. Instead of the traditional "next-token", the model is instead trained to predict multiple future tokens simultaneously at every position.
+
+By forcing the model to think several steps ahead, it develops a better grasp of long-term dependencies. Also leads to faster training as many tokens are being trained at once.
+
+**Architecture:**
+
+`Shared Trunk` - The main body of the Transformer that processes the input
+`MTP Heads` - Several small, independent output layers. These are what predicts the next n tokens (ie. Head 1 predicts the next token, Head 2 predicts the token after next, etc)
+
+> The MTP heads used in training can be used as a built-in draft model. The main model (shared trunk) acts as the target model.

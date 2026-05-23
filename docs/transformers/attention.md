@@ -60,3 +60,16 @@ PagedAttention breaks the KV cache into small, fixed-size blocks. This allows th
 ## Latent Attention
 
 Used to compress the KV Cache. In standard attention, the KV cache grows linearly with context length, but in latent attention the model compresses the KV into a "latent vector". This latent vector is then stored and uncompressed during inference.
+
+## Flash Attention
+
+This was developed to combat the high memory attention needs and its slow processing speed.
+
+**GPU Architecture:**
+
+- `HBM (High Bandwidth Memory)` - This is a massive pool of VRAM and holds your model weights. It is really slow for read/writes.
+- `SRAM` - This is a tiny, lightning-fast internal cache
+
+So regular attention requires loading the Q and K matrix from the slow HBM into SRAM. From there, we perform the multiplication and send the result back to HBM. Then, we have to reread the new matrix from HBM into SRAM to compute the softmax and send the result back to HBM. Finally, we reread the softmax from HBM into SRAM to multiply with V and send the result back to HBM.
+
+This back-and-forth slows down the processing of the model. Flash attention attempts to solve this by breaking the attention matrix into blocks and performing all the calculations inside the SRAM before streaming the results to HBM

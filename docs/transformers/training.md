@@ -70,3 +70,21 @@ We do this when the model is too big to fit into the memory of a single GPU. The
 ## Mixed Precision Training
 
 Speeds up model training and slashes VRAM usage by using FP16 and FP32 bit floating points at the same time. In the past, models were trained entirely on FP32. Mixed precision abuses the fact that models can still do calculations with lower precision formats without hurting the accuracy of the final model.
+
+## Preference Tuning
+
+Adjusting an LLM so it becomes aligned with human morals, values, and safety.
+
+### RLHF
+
+Reinforcement Learning from Human Feedback consists of:
+
+1. Gather Comparison Data - Review output for a single prompt and rank them from best to worst
+2. Train a Reward Model - A smaller model is trained on this ranking data to mimic human judgement assigning weights to any text (ie. +3 for a good answer, -3 for a bad one)
+3. Optimize via Reinforcement Learning - Now the main LLM generates responses and the Reward model scores them. A Reinforcement Learning algorithm (ie. PPO) updates the LLMs weights
+
+### DPO
+
+Direct Preference Optimization solves the issue of RLHF being unstable and expensive due to the fact that multiple models are kept in memory. DPO treats preference tuning as simple binary classification - increasing the probability of generating the chosen response and decreasing the probability of generating the rejected response.
+
+> DPO achieves similar or better results as RLHF

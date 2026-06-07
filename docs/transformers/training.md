@@ -75,6 +75,16 @@ Speeds up model training and slashes VRAM usage by using FP16 and FP32 bit float
 
 Adjusting an LLM so it becomes aligned with human morals, values, and safety.
 
+### Dataset
+
+Preference training requires a high quality dataset to allow the model be trained to make good preferences.
+
+**Types:**
+
+- `Pointwise` - Every sentence/data point is mapped to a singular numerical value. This determines how positive or negative a sentence is
+- `Pairwise` - Every sentence/data point is compared to another sentence or data point. This helps the LLM distinguish which sentences are better than other ones. This one is the preferred method as its incredibly simple and easy to generate the data
+- `Listwise` - A list of sentences/data points are ranked against each other and ordered from best to worst.
+
 ### RLHF
 
 Reinforcement Learning from Human Feedback consists of:
@@ -82,6 +92,22 @@ Reinforcement Learning from Human Feedback consists of:
 1. Gather Comparison Data - Review output for a single prompt and rank them from best to worst
 2. Train a Reward Model - A smaller model is trained on this ranking data to mimic human judgement assigning weights to any text (ie. +3 for a good answer, -3 for a bad one)
 3. Optimize via Reinforcement Learning - Now the main LLM generates responses and the Reward model scores them. A Reinforcement Learning algorithm (ie. PPO) updates the LLMs weights
+
+> RLHF has a big drawback of memory consumption due to having to load in 4 huge models in memory at once during training (policy model, ref model, value model, reward model)
+
+#### Bradley-Terry Formula
+
+This is the mathematical formula used to train the reward model in RHLF. This is used in pairwise data and helps assign a probability that a human would choose response A over response B. It helps numerically quantify this choice so the LLM can understand.
+
+#### PPO
+
+This is a optimization algorithm that adjusts the weights of the LLM based on the results from the reward model. An important concept to understand here is it'll take the adjusted reward, but also factor in weights from the base model (pretrained model not finetuned one) to make sure the new adjusted weights don't deviate too much from the original model.
+
+#### BoN
+
+This is a technique where we don't adjust the weights of the finetuned model. Instead, we simply have the finetuned model generate a bunch of responses (with varying temperatures) and have the reward model pick the best one.
+
+> Note: This is a suboptimal technique due to the heavy a compute costs.
 
 ### DPO
 

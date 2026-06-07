@@ -85,6 +85,6 @@ Reinforcement Learning from Human Feedback consists of:
 
 ### DPO
 
-Direct Preference Optimization solves the issue of RLHF being unstable and expensive due to the fact that multiple models are kept in memory. DPO treats preference tuning as simple binary classification - increasing the probability of generating the chosen response and decreasing the probability of generating the rejected response.
+Direct Preference Optimization solves the issue of RLHF being unstable and expensive due to the fact that multiple models are kept in memory. DPO treats preference tuning as simple binary classification - increasing the probability of generating the chosen response and decreasing the probability of generating the rejected response. It does this by adjusting the loss function in a supervised way so the LLM adjusts its weights based on the preference data as well.
 
 > DPO achieves similar or better results as RLHF
